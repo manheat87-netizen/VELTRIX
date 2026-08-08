@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VELTRIX — The Future of Technology</title>
+
+<meta name="description" content="VELTRIX explores technology, artificial intelligence, robotics and the ideas shaping tomorrow.">
+
+<style>
+
+/* ================================
+   VELTRIX — EXTREME ARTICLE DESIGN
+================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg: #03050b;
+    --panel: rgba(12, 17, 30, 0.72);
+    --text: #f5f7ff;
+    --muted: #8e98ad;
+    --line: rgba(255,255,255,0.09);
+    --blue: #4da6ff;
+    --cyan: #00e5ff;
+    --purple: #8b5cf6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Inter, sans-serif;
+    overflow-x: hidden;
+}
+
+/* ================================
+   PROGRESS BAR
+================================ */
+
+.progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--blue), var(--cyan), var(--purple));
+    z-index: 9999;
+    box-shadow: 0 0 20px var(--cyan);
+}
+
+/* ================================
+   BACKGROUND
+================================ */
+
+.background {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: .22;
+    animation: float 12s ease-in-out infinite;
+}
+
+.orb.one {
+    width: 450px;
+    height: 450px;
+    background: #006eff;
+    top: -150px;
+    left: -150px;
+}
+
+.orb.two {
+    width: 500px;
+    height: 500px;
+    background: #7c3aed;
+    right: -180px;
+    top: 35%;
+    animation-delay: -4s;
+}
+
+.orb.three {
+    width: 350px;
+    height: 350px;
+    background: #00d9ff;
+    bottom: -150px;
+    left: 30%;
+    animation-delay: -8s;
+}
+
+@keyframes float {
+    0%,100% {
+        transform: translate(0,0) scale(1);
+    }
+
+    50% {
+        transform: translate(40px,-50px) scale(1.15);
+    }
+}
+
+/* ================================
+   GRID
+================================ */
+
+.grid {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    opacity: .18;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+
+    background-size: 60px 60px;
+
+    mask-image: linear-gradient(to bottom, black, transparent 80%);
+}
+
+/* ================================
+   NAVIGATION
+================================ */
+
+nav {
+    position: sticky;
+    top: 12px;
+    width: min(1200px, calc(100% - 30px));
+    margin: 20px auto 0;
+
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 25px;
+
+    background: rgba(5,8,18,.65);
+    backdrop-filter: blur(20px);
+
+    border: 1px solid var(--line);
+    border-radius: 20px;
+
+    z-index: 1000;
+
+    box-shadow:
+        0 10px 50px rgba(0,0,0,.35),
+        inset 0 1px rgba(255,255,255,.05);
+}
+
+.logo {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 5px;
+}
+
+.logo span {
+    color: var(--cyan);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.nav-button {
+    padding: 11px 18px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 30px;
+    text-decoration: none;
+    color: white;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.nav-button:hover {
+    border-color: var(--cyan);
+    box-shadow: 0 0 25px rgba(0,229,255,.25);
+}
+
+/* ================================
+   HERO
+================================ */
+
+.hero {
+    width: min(1050px, calc(100% - 35px));
+    margin: 130px auto 80px;
+}
+
+.category {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 9px 14px;
+
+    border: 1px solid rgba(0,229,255,.2);
+    background: rgba(0,229,255,.05);
+
+    border-radius: 30px;
+
+    color: var(--cyan);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    animation: appear .8s ease;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    background: var(--cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--cyan);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%,100% {
+        opacity: .5;
+        transform: scale(.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+.hero h1 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(48px, 8vw, 92px);
+
+    line-height: .98;
+
+    letter-spacing: -4px;
+
+    max-width: 1000px;
+
+    margin-top: 30px;
+
+    background: linear-gradient(
+        120deg,
+        white 20%,
+        #8bdcff 45%,
+        #ffffff 70%
+    );
+
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+    
+
+    background-size: 200% auto;
+
+    animation:
+        gradientMove 6s linear infinite,
+        appear 1s ease;
+}
+
+@keyframes gradientMove {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.hero-description {
+    max-width: 700px;
+
+    margin-top: 30px;
+
+    color: var(--muted);
+
+    font-size: 19px;
+
+    line-height: 1.8;
+
+    animation: appear 1.3s ease;
+}
+
+.meta {
+    display: flex;
+    gap: 25px;
+
+    margin-top: 35px;
+
+    color: #68748b;
+
+    font-size: 13px;
+
+    animation: appear 1.5s ease;
+}
+
+.meta strong {
+    color: #cdd4e2;
+}
+
+/* ================================
+   HERO VISUAL
+================================ */
+
+.visual {
+    height: 460px;
+
+    margin-top: 70px;
+
+    position: relative;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--line);
+
+    background:
+        radial-gradient(circle at 50% 50%, rgba(0,170,255,.16), transparent 35%),
+        linear-gradient(135deg, #07101f, #03050b);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.5),
+        inset 0 1px rgba(255,255,255,.06);
+
+    animation: appear 1.8s ease;
+}
+
+/* futuristic rings */
+
+.ring {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(0,229,255,.3);
+
+    animation: rotate 15s linear infinite;
+}
+
+.ring:nth-child(1) {
+    width: 220px;
+    height: 220px;
+}
+
+.ring:nth-child(2) {
+    width: 340px;
+    height: 340px;
+    animation-duration: 25s;
+    animation-direction: reverse;
+}
+
+.ring:nth-child(3) {
+    width: 470px;
+    height: 470px;
+    animation-duration: 35s;
+}
+
+.core {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 95px;
+    height: 95px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle at 35% 30%, white, #35dfff 20%, #006cff 55%, transparent 70%);
+
+    box-shadow:
+        0 0 40px #00d9ff,
+        0 0 100px rgba(0,180,255,.5);
+
+    animation: corePulse 3s ease-in-out infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes corePulse {
+    0%,100% {
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%,-50%) scale(1.15);
+    }
+}
+
+/* ================================
+   ARTICLE
+================================ */
+
+.article-layout {
+    width: min(1050px, calc(100% - 35px));
+
+    margin: 100px auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 250px;
+
+    gap: 80px;
+}
+
+.article {
+    font-size: 18px;
+    line-height: 1.9;
+    color: #c4cad6;
+}
+
+.article p {
+    margin-bottom: 30px;
+}
+
+.article h2 {
+    font-family: "Space Grotesk", sans-serif;
+
+    color: white;
+
+    font-size: 34px;
+
+    margin: 70px 0 25px;
+
+    letter-spacing: -1px;
+}
+
+.article h3 {
+    color: white;
+    font-size: 23px;
+    margin: 45px 0 15px;
+}
+
+.highlight {
+    margin: 50px 0;
+
+    padding: 35px;
+
+    border-left: 3px solid var(--cyan);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,229,255,.08),
+            transparent
+        );
+
+    color: white;
+
+    font-size: 22px;
+
+    line-height: 1.6;
+}
+
+/* ================================
+   SIDEBAR
+================================ */
+
+.sidebar {
+    position: sticky;
+    top: 110px;
+
+    height: fit-content;
+}
+
+.sidebar-title {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #657086;
+    margin-bottom: 20px;
+}
+
+.toc a {
+    display: block;
+
+    padding: 12px 0;
+
+    color: #68748b;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    border-bottom: 1px solid rgba(255,255,255,.05);
+
+    transition: .3s;
+}
+
+.toc a:hover {
+    color: var(--cyan);
+    padding-left: 8px;
+}
+
+/* ================================
+   ARTICLE CARDS
+================================ */
+
+.more {
+    width: min(1050px, calc(100% - 35px));
+    margin: 120px auto;
+}
+
+.more-title {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 42px;
+
+    margin-bottom: 35px;
+}
+
+.cards {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.card {
+    padding: 28px;
+
+    min-height: 220px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 22px;
+
+    background: var(--panel);
+
+    backdrop-filter: blur(20px);
+
+    transition:
+        transform .4s,
+        border-color .4s,
+        box-shadow .4s;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    background: var(--cyan);
+
+    filter: blur(90px);
+
+    opacity: 0;
+
+    transition: .4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+
+    border-color: rgba(0,229,255,.35);
+
+    box-shadow: 0 30px 60px rgba(0,0,0,.35);
+}
+
+.card:hover::before {
+    opacity: .12;
+}
+
+.card small {
+    color: var(--cyan);
+}
+
+.card h3 {
+    margin: 20px 0 12px;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 22px;
+}
+
+.card p {
+    color: var(--muted);
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+    border-top: 1px solid var(--line);
+
+    padding: 60px 20px;
+
+    text-align: center;
+
+    color: #657086;
+}
+
+footer strong {
+    color: white;
+    letter-spacing: 4px;
+}
+
+/* ================================
+   ANIMATION
+================================ */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media(max-width: 800px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    nav {
+        height: 62px;
+    }
+
+    .hero {
+        margin-top: 90px;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .visual {
+        height: 320px;
+    }
+
+    .article-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .meta {
+        flex-wrap: wrap;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="progress"></div>
+
+<div class="background">
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="orb three"></div>
+</div>
+
+<div class="grid"></div>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="logo">
+        VEL<span>TRIX</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Articles</a>
+        <a href="#">Technology</a>
+        <a href="#">About</a>
+    </div>
+
+    <a href="#" class="nav-button">
+        Explore
+    </a>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="category">
+        <span class="dot"></span>
+        FUTURE TECHNOLOGY
+    </div>
+
+    <h1>
+        The Future of Technology Is Already Beginning
+    </h1>
+
+    <p class="hero-description">
+        Artificial intelligence, robotics, advanced computing and
+        emerging technologies are changing what humanity can build.
+        The next technological revolution may be closer than we think.
+    </p>
+
+    <div class="meta">
+
+        <span>
+            By <strong>VELTRIX Editorial</strong>
+        </span>
+
+        <span>•</span>
+
+        <span>August 8, 2026</span>
+
+        <span>•</span>
+
+        <span>8 min read</span>
+
+    </div>
+
+
+    <!-- FUTURISTIC VISUAL -->
+
+    <div class="visual">
+
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+
+        <div class="core"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ARTICLE -->
+
+<section class="article-layout">
+
+    <article class="article">
+
+        <p>
+            Technology is no longer advancing in isolated steps.
+            Artificial intelligence, robotics, biotechnology,
+            computing and connected systems are increasingly
+            developing together.
+        </p>
+
+        <p>
+            This convergence is creating a new technological
+            environment where machines can understand information,
+            learn from data and increasingly interact with the
+            physical world.
+        </p>
+
+
+        <h2 id="ai">
+            Intelligence Becomes Infrastructure
+        </h2>
+
+        <p>
+            Artificial intelligence is moving beyond individual
+            applications. It is becoming a fundamental layer of
+            modern software, research and automation.
+        </p>
+
+        <div class="highlight">
+            The most important technological shift may not be a
+            single invention — it may be the combination of many
+            technologies into one intelligent ecosystem.
+        </div>
+
+
+        <h2 id="robotics">
+            The Rise of Intelligent Machines
+        </h2>
+
+        <p>
+            Robotics is evolving from machines that simply follow
+            programmed instructions toward systems capable of
+            perceiving their environment and adapting to changing
+            conditions.
+        </p>
+
+        <h3>
+            Machines That Understand Their Environment
+        </h3>
+
+        <p>
+            Cameras, sensors, computer vision and AI models allow
+            modern robots to interpret increasingly complex
+            environments.
+        </p>
+
+
+        <h2 id="computing">
+            Computing Beyond Traditional Limits
+        </h2>
+
+        <p>
+            Computing hardware continues to evolve through
+            specialized processors, accelerators, distributed
+            systems and new approaches to computation.
+        </p>
+
+        <p>
+            The result is a world where increasingly sophisticated
+            simulations, AI systems and scientific models can be
+            developed at unprecedented scale.
+        </p>
+
+
+        <h2 id="future">
+            What Comes Next?
+        </h2>
+
+        <p>
+            The future of technology will probably not be defined
+            by one technology alone. It will be defined by how
+            different technologies interact.
+        </p>
+
+        <p>
+            Artificial intelligence combined with robotics,
+            advanced computing, biotechnology and connected
+            infrastructure could create systems that would have
+            seemed impossible only a few decades ago.
+        </p>
+
+    </article>
+
+
+    <!-- TABLE OF CONTENTS -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-title">
+            IN THIS ARTICLE
+        </div>
+
+        <div class="toc">
+
+            <a href="#ai">
+                Intelligence
+            </a>
+
+            <a href="#robotics">
+                Robotics
+            </a>
+
+            <a href="#computing">
+                Computing
+            </a>
+
+            <a href="#future">
+                The Future
+            </a>
+
+        </div>
+
+    </aside>
+
+</section>
+
+
+<!-- MORE ARTICLES -->
+
+<section class="more">
+
+    <h2 class="more-title">
+        Explore More
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <small>AI</small>
+
+            <h3>
+                Where Artificial Intelligence Is Going
+            </h3>
+
+            <p>
+                Exploring the next generation of intelligent
+                systems and autonomous software.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <small>ROBOTICS</small>
+
+            <h3>
+                The Machines of Tomorrow
+            </h3>
+
+            <p>
+                How robotics could transform manufacturing,
+                transportation and exploration.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <small>SCIENCE</small>
+
+            <h3>
+                Beyond Today's Technology
+            </h3>
+
+            <p>
+                The emerging technologies that could reshape
+                civilization.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <strong>VELTRIX</strong>
+
+    <p style="margin-top:15px;">
+        Explore the future.
+    </p>
+
+</footer>
+
+
+<script>
+
+/* ================================
+   READING PROGRESS
+================================ */
+
+window.addEventListener("scroll", () => {
+
+    const scrollTop =
+        window.scrollY;
+
+    const documentHeight =
+        document.documentElement.scrollHeight
+        - window.innerHeight;
+
+    const progress =
+        (scrollTop / documentHeight) * 100;
+
+    document.querySelector(".progress").style.width =
+        progress + "%";
+
+});
+
+
+/* ================================
+   MOUSE PARALLAX
+================================ */
+
+document.addEventListener("mousemove", (event) => {
+
+    const x =
+        (event.clientX / window.innerWidth - .5);
+
+    const y =
+        (event.clientY / window.innerHeight - .5);
+
+    const core =
+        document.querySelector(".core");
+
+    core.style.transform =
+        `translate(calc(-50% + ${x * 15}px),
+        calc(-50% + ${y * 15}px))`;
+
+});
+
+</script>
+
+</body>
+</html>

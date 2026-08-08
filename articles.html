@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VELTRIX — Articles</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #03050b;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    position: sticky;
+    top: 15px;
+    z-index: 100;
+
+    width: 90%;
+    max-width: 1200px;
+    height: 70px;
+
+    margin: 15px auto 0;
+    padding: 0 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(5,10,22,.75);
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 20px;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+
+.logo span {
+    color: #00d9ff;
+}
+
+nav a {
+    color: #9aa5b8;
+    text-decoration: none;
+    margin-left: 25px;
+}
+
+nav a:hover {
+    color: #00d9ff;
+}
+
+.hero {
+    text-align: center;
+    padding: 110px 20px 70px;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 9vw, 100px);
+    letter-spacing: 5px;
+
+    background: linear-gradient(120deg, white, #00d9ff, white);
+    background-size: 200%;
+
+   -webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+
+    animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200%;
+    }
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 25px auto;
+
+    color: #8994a8;
+    line-height: 1.7;
+    font-size: 18px;
+}
+
+/* SEARCH */
+
+.search {
+    width: min(700px, 90%);
+    margin: 0 auto 60px;
+}
+
+.search input {
+    width: 100%;
+    padding: 18px 22px;
+
+    background: rgba(15,22,38,.8);
+
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 15px;
+
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+.search input:focus {
+    border-color: #00d9ff;
+    box-shadow: 0 0 25px rgba(0,217,255,.15);
+}
+
+/* CATEGORIES */
+
+.categories {
+    width: min(1100px, 90%);
+    margin: auto auto 50px;
+
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.category {
+    padding: 10px 18px;
+
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 30px;
+
+    color: #8c98ac;
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.category:hover,
+.category.active {
+    color: #00d9ff;
+    border-color: #00d9ff;
+    background: rgba(0,217,255,.06);
+}
+
+/* ARTICLES */
+
+.grid {
+    width: min(1100px, 90%);
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.card {
+    min-height: 330px;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(17,25,43,.9),
+            rgba(5,8,15,.9)
+        );
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 25px;
+
+    position: relative;
+    overflow: hidden;
+
+    transition: .4s;
+}
+
+.card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    background: #00d9ff;
+    filter: blur(100px);
+
+    opacity: 0;
+
+    right: -80px;
+    top: -80px;
+
+    transition: .4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+
+    border-color: rgba(0,217,255,.35);
+
+    box-shadow: 0 30px 70px rgba(0,0,0,.45);
+}
+
+.card:hover::after {
+    opacity: .12;
+}
+
+.tag {
+    color: #00d9ff;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.card h2 {
+    font-size: 27px;
+    margin: 22px 0 15px;
+}
+
+.card p {
+    color: #8490a5;
+    line-height: 1.7;
+}
+
+.read {
+    display: inline-block;
+    margin-top: 25px;
+
+    color: white;
+    text-decoration: none;
+
+    font-size: 14px;
+}
+
+.read:hover {
+    color: #00d9ff;
+}
+
+/* FOOTER */
+
+footer {
+    margin-top: 130px;
+    padding: 70px 20px;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(255,255,255,.08);
+    color: #69758a;
+}
+
+footer strong {
+    color: white;
+    letter-spacing: 5px;
+}
+
+/* MOBILE */
+
+@media(max-width: 800px) {
+
+    nav .links {
+        display: none;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        VEL<span>TRIX</span>
+    </div>
+
+    <div class="links">
+        <a href="home.html">Home</a>
+        <a href="articles.html">Articles</a>
+        <a href="index.html">Featured</a>
+    </div>
+
+</nav>
+
+
+<section class="hero">
+
+    <h1>ARTICLES</h1>
+
+    <p>
+        Explore ideas, discoveries and technologies
+        shaping the future.
+    </p>
+
+</section>
+
+
+<div class="search">
+
+    <input
+        type="text"
+        id="search"
+        placeholder="Search VELTRIX articles..."
+    >
+
+</div>
+
+
+<div class="categories">
+
+    <div class="category active" data-category="all">
+        All
+    </div>
+
+    <div class="category" data-category="ai">
+        AI
+    </div>
+
+    <div class="category" data-category="robotics">
+        Robotics
+    </div>
+
+    <div class="category" data-category="computing">
+        Computing
+    </div>
+
+    <div class="category" data-category="science">
+        Science
+    </div>
+
+</div>
+
+
+<div class="grid" id="articles">
+
+
+    <div class="card" data-category="ai">
+
+        <div class="tag">AI</div>
+
+        <h2>
+            The Future of Artificial Intelligence
+        </h2>
+
+        <p>
+            How increasingly capable AI systems could
+            transform software, research and everyday life.
+        </p>
+
+        <a href="index.html" class="read">
+            Read Article →
+        </a>
+
+    </div>
+
+
+    <div class="card" data-category="robotics">
+
+        <div class="tag">ROBOTICS</div>
+
+        <h2>
+            The Rise of Intelligent Machines
+        </h2>
+
+        <p>
+            Exploring autonomous robots and the technologies
+            allowing machines to understand their environment.
+        </p>
+
+        <a href="index.html" class="read">
+            Read Article →
+        </a>
+
+    </div>
+
+
+    <div class="card" data-category="computing">
+
+        <div class="tag">COMPUTING</div>
+
+        <h2>
+            Computing Beyond Traditional Limits
+        </h2>
+
+        <p>
+            From specialized processors to advanced
+            computing architectures.
+        </p>
+
+        <a href="index.html" class="read">
+            Read Article →
+        </a>
+
+    </div>
+
+
+    <div class="card" data-category="science">
+
+        <div class="tag">SCIENCE</div>
+
+        <h2>
+            Technologies That Could Change Humanity
+        </h2>
+
+        <p>
+            A look at emerging technologies and the
+            possibilities they could unlock.
+        </p>
+
+        <a href="index.html" class="read">
+            Read Article →
+        </a>
+
+    </div>
+
+
+    <div class="card" data-category="ai">
+
+        <div class="tag">AI</div>
+
+        <h2>
+            AI Agents and Autonomous Software
+        </h2>
+
+        <p>
+            How software systems are becoming capable of
+            planning, reasoning and completing tasks.
+        </p>
+
+        <a href="index.html" class="read">
+            Read Article →
+        </a>
+
+    </div>
+
+
+    <div class="card" data-category="robotics">
+
+        <div class="tag">ROBOTICS</div>
+
+        <h2>
+            Robots in the Next Decade
+        </h2>
+
+        <p>
+            What advances in sensors, computing and AI
+            could mean for future robotics.
+        </p>
+
+        <a href="index.html" class="read">
+            Read Article →
+        </a>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    <strong>VELTRIX</strong>
+
+    <p style="margin-top:15px;">
+        Innovate. Transform. Elevate.
+    </p>
+
+</footer>
+
+
+<script>
+
+/* SEARCH */
+
+const search = document.getElementById("search");
+const cards = document.querySelectorAll(".card");
+
+search.addEventListener("input", function() {
+
+    const value = this.value.toLowerCase();
+
+    cards.forEach(card => {
+
+        const text = card.innerText.toLowerCase();
+
+        card.style.display =
+            text.includes(value) ? "block" : "none";
+
+    });
+
+});
+
+
+/* CATEGORIES */
+
+const categories =
+    document.querySelectorAll(".category");
+
+categories.forEach(category => {
+
+    category.addEventListener("click", () => {
+
+        categories.forEach(c =>
+            c.classList.remove("active")
+        );
+
+        category.classList.add("active");
+
+        const selected =
+            category.dataset.category;
+
+        cards.forEach(card => {
+
+            if (
+                selected === "all" ||
+                card.dataset.category === selected
+            ) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+
+        });
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>

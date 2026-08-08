@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VELTRIX — Contact</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #03050b;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+.background {
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0,150,255,.15), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(100,50,255,.12), transparent 30%);
+    pointer-events: none;
+}
+
+nav {
+    width: 90%;
+    max-width: 1200px;
+    height: 70px;
+    margin: 20px auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 25px;
+
+    background: rgba(8,12,25,.75);
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 20px;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+
+.logo span {
+    color: #00d9ff;
+}
+
+nav a {
+    color: #9ba6b9;
+    text-decoration: none;
+    margin-left: 25px;
+}
+
+nav a:hover {
+    color: #00d9ff;
+}
+
+.container {
+    width: min(1000px, 90%);
+    margin: 100px auto;
+}
+
+h1 {
+    font-size: clamp(50px, 8vw, 90px);
+    letter-spacing: 4px;
+
+    background: linear-gradient(120deg, white, #00d9ff, white);
+    background-size: 200%;
+
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+    
+
+    animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200%;
+    }
+}
+
+.subtitle {
+    color: #8994a8;
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 25px 0 50px;
+}
+
+.form {
+    max-width: 700px;
+
+    padding: 35px;
+
+    background: rgba(12,18,32,.75);
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(20px);
+}
+
+label {
+    display: block;
+    color: #9ca7ba;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+input,
+textarea {
+    width: 100%;
+
+    padding: 16px;
+
+    margin-bottom: 25px;
+
+    background: rgba(0,0,0,.3);
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    border-radius: 12px;
+
+    color: white;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #00d9ff;
+
+    box-shadow:
+        0 0 25px rgba(0,217,255,.12);
+}
+
+textarea {
+    min-height: 160px;
+    resize: vertical;
+}
+
+button {
+    padding: 15px 30px;
+
+    background: transparent;
+
+    color: white;
+
+    border: 1px solid #00d9ff;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+button:hover {
+    background: #00d9ff;
+    color: #03050b;
+
+    box-shadow: 0 0 35px rgba(0,217,255,.4);
+}
+
+footer {
+    margin-top: 100px;
+
+    padding: 60px 20px;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(255,255,255,.08);
+
+    color: #69758a;
+}
+
+footer strong {
+    color: white;
+    letter-spacing: 5px;
+}
+
+@media(max-width:700px) {
+
+    nav .links {
+        display: none;
+    }
+
+    .container {
+        margin-top: 70px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<nav>
+
+    <div class="logo">
+        VEL<span>TRIX</span>
+    </div>
+
+    <div class="links">
+        <a href="home.html">Home</a>
+        <a href="articles.html">Articles</a>
+        <a href="index.html">Featured</a>
+    </div>
+
+</nav>
+
+<div class="container">
+
+    <h1>CONTACT</h1>
+
+    <p class="subtitle">
+        Have an idea, question or opportunity?
+        Send a message to the VELTRIX team.
+    </p>
+
+    <form class="form" onsubmit="sendMessage(event)">
+
+        <label>Your Name</label>
+
+        <input
+            type="text"
+            placeholder="Enter your name"
+            required
+        >
+
+        <label>Email</label>
+
+        <input
+            type="email"
+            placeholder="you@example.com"
+            required
+        >
+
+        <label>Message</label>
+
+        <textarea
+            placeholder="Write your message..."
+            required
+        ></textarea>
+
+        <button type="submit">
+            SEND MESSAGE →
+        </button>
+
+    </form>
+
+</div>
+
+<footer>
+
+    <strong>VELTRIX</strong>
+
+    <p style="margin-top:15px;">
+        Innovate. Transform. Elevate.
+    </p>
+
+</footer>
+
+<script>
+
+function sendMessage(event) {
+
+    event.preventDefault();
+
+    alert("Message interface is working! Next we can connect it to a real email system.");
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VELTRIX — Projects</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #02040a;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* BACKGROUND */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -2;
+
+    background:
+        radial-gradient(circle at 15% 20%, rgba(0,180,255,.14), transparent 28%),
+        radial-gradient(circle at 85% 65%, rgba(120,60,255,.12), transparent 30%);
+}
+
+.grid {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: .13;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+
+    background-size: 60px 60px;
+}
+
+/* NAV */
+
+nav {
+    position: sticky;
+    top: 15px;
+    z-index: 100;
+
+    width: 92%;
+    max-width: 1250px;
+    height: 70px;
+
+    margin: 15px auto 0;
+    padding: 0 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(5,9,20,.72);
+    backdrop-filter: blur(22px);
+
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 20px;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+
+.logo span {
+    color: #00d9ff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: #8d98aa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: #00d9ff;
+}
+
+/* HERO */
+
+.hero {
+    width: min(1150px, 90%);
+    margin: 120px auto 80px;
+}
+
+.tag {
+    display: inline-block;
+
+    padding: 9px 15px;
+
+    color: #00d9ff;
+
+    border: 1px solid rgba(0,217,255,.25);
+    border-radius: 30px;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    background: rgba(0,217,255,.04);
+}
+
+.hero h1 {
+    margin-top: 30px;
+
+    font-size: clamp(55px, 10vw, 115px);
+
+    letter-spacing: -5px;
+
+    background: linear-gradient(
+        120deg,
+        white,
+        #67e4ff,
+        #ffffff
+    );
+
+    background-size: 200%;
+
+    -webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+
+    animation: shine 6s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200%;
+    }
+}
+
+.hero p {
+    max-width: 750px;
+
+    margin-top: 30px;
+
+    color: #8792a6;
+
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+/* PROJECT GRID */
+
+.projects {
+    width: min(1150px, 90%);
+    margin: 100px auto 150px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.project {
+    min-height: 360px;
+
+    padding: 35px;
+
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16,25,43,.9),
+            rgba(4,7,14,.9)
+        );
+
+    transition:
+        transform .5s,
+        border-color .5s,
+        box-shadow .5s;
+}
+
+.project:hover {
+    transform: translateY(-12px);
+
+    border-color: rgba(0,217,255,.35);
+
+    box-shadow:
+        0 35px 90px rgba(0,0,0,.45),
+        0 0 40px rgba(0,217,255,.05);
+}
+
+.project::before {
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    right: -100px;
+    top: -100px;
+
+    border-radius: 50%;
+
+    background: #00d9ff;
+
+    filter: blur(100px);
+
+    opacity: 0;
+
+    transition: .5s;
+}
+
+.project:hover::before {
+    opacity: .12;
+}
+
+.number {
+    color: #00d9ff;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+}
+
+.project h2 {
+    margin-top: 25px;
+
+    font-size: 34px;
+
+    font-weight: 600;
+}
+
+.project p {
+    margin-top: 18px;
+
+    color: #8792a6;
+
+    line-height: 1.75;
+
+    max-width: 520px;
+}
+
+.status {
+    position: absolute;
+
+    left: 35px;
+    bottom: 35px;
+
+    padding: 8px 13px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    color: #8feaff;
+
+    border: 1px solid rgba(0,217,255,.18);
+
+    background: rgba(0,217,255,.05);
+}
+
+/* FEATURED PROJECT */
+
+.featured {
+    width: min(1150px, 90%);
+    margin: 0 auto 150px;
+
+    min-height: 430px;
+
+    padding: 50px;
+
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 32px;
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    background:
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(0,180,255,.15),
+            transparent 35%
+        ),
+        rgba(9,15,28,.8);
+}
+
+.featured h2 {
+    font-size: 48px;
+    margin: 20px 0;
+}
+
+.featured p {
+    max-width: 600px;
+
+    color: #8994a8;
+
+    line-height: 1.8;
+}
+
+.explore {
+    display: inline-block;
+
+    margin-top: 35px;
+
+    padding: 14px 25px;
+
+    color: white;
+
+    text-decoration: none;
+
+    border: 1px solid #00d9ff;
+
+    border-radius: 30px;
+
+    transition: .3s;
+}
+
+.explore:hover {
+    background: #00d9ff;
+    color: #02040a;
+
+    box-shadow: 0 0 35px rgba(0,217,255,.4);
+}
+
+/* FOOTER */
+
+footer {
+    padding: 70px 20px;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(255,255,255,.08);
+
+    color: #667186;
+}
+
+footer strong {
+    color: white;
+    letter-spacing: 5px;
+}
+
+/* MOBILE */
+
+@media(max-width: 800px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    .featured {
+        padding: 30px;
+    }
+
+    .featured h2 {
+        font-size: 36px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="grid"></div>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="logo">
+        VEL<span>TRIX</span>
+    </div>
+
+    <div class="nav-links">
+
+        <a href="home.html">
+            Home
+        </a>
+
+        <a href="articles.html">
+            Articles
+        </a>
+
+        <a href="projects.html">
+            Projects
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="tag">
+        VELTRIX PROJECTS
+    </div>
+
+    <h1>
+        BUILDING<br>
+        TOMORROW.
+    </h1>
+
+    <p>
+        Explore the concepts, experiments and technological
+        projects that push the boundaries of what is possible.
+    </p>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section class="projects">
+
+
+    <div class="project">
+
+        <div class="number">
+            PROJECT 01 / AI
+        </div>
+
+        <h2>
+            VELTRIX Intelligence
+        </h2>
+
+        <p>
+            An advanced artificial intelligence ecosystem
+            focused on intelligent software, autonomous
+            reasoning and next-generation AI applications.
+        </p>
+
+        <div class="status">
+            RESEARCH
+        </div>
+
+    </div>
+
+
+    <div class="project">
+
+        <div class="number">
+            PROJECT 02 / ROBOTICS
+        </div>
+
+        <h2>
+            Autonomous Systems
+        </h2>
+
+        <p>
+            Exploring intelligent machines capable of
+            perception, navigation, decision-making and
+            autonomous operation.
+        </p>
+
+        <div class="status">
+            DEVELOPMENT
+        </div>
+
+    </div>
+
+
+    <div class="project">
+
+        <div class="number">
+            PROJECT 03 / COMPUTING
+        </div>
+
+        <h2>
+            Future Compute
+        </h2>
+
+        <p>
+            Research into high-performance computing,
+            specialized processors, AI accelerators and
+            advanced computing architectures.
+        </p>
+
+        <div class="status">
+            RESEARCH
+        </div>
+
+    </div>
+
+
+    <div class="project">
+
+        <div class="number">
+            PROJECT 04 / AEROSPACE
+        </div>
+
+        <h2>
+            Beyond Earth
+        </h2>
+
+        <p>
+            Exploring aerospace technologies, autonomous
+            systems and the engineering challenges of
+            future exploration.
+        </p>
+
+        <div class="status">
+            CONCEPT
+        </div>
+
+    </div>
+
+
+    <div class="project">
+
+        <div class="number">
+            PROJECT 05 / ENERGY
+        </div>
+
+        <h2>
+            Next Energy
+        </h2>
+
+        <p>
+            Investigating cleaner and more efficient
+            approaches to future energy systems and
+            intelligent infrastructure.
+        </p>
+
+        <div class="status">
+            RESEARCH
+        </div>
+
+    </div>
+
+
+    <div class="project">
+
+        <div class="number">
+            PROJECT 06 / SCIENCE
+        </div>
+
+        <h2>
+            Frontier Science
+        </h2>
+
+        <p>
+            Exploring scientific ideas and emerging
+            technologies that could influence the next
+            generation of innovation.
+        </p>
+
+        <div class="status">
+            EXPLORATION
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FEATURED -->
+
+<section class="featured">
+
+    <div class="tag">
+        FEATURED PROJECT
+    </div>
+
+    <h2>
+        The VELTRIX Future Lab
+    </h2>
+
+    <p>
+        A conceptual technology environment bringing
+        artificial intelligence, robotics, advanced
+        computing and experimental engineering together
+        under one ecosystem.
+    </p>
+
+    <a href="articles.html" class="explore">
+        EXPLORE RESEARCH →
+    </a>
+
+</section>
+
+
+<footer>
+
+    <strong>VELTRIX</strong>
+
+    <p style="margin-top:15px;">
+        Innovate. Transform. Elevate.
+    </p>
+
+</footer>
+
+</body>
+</html>
