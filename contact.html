@@ -1,297 +1,826 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VELTRIX — Contact</title>
+<title>Contact VELTRIX — Technology Beyond Tomorrow</title>
+
+<meta name="description"
+content="Contact VELTRIX by Mayukh Hati for questions, feedback, suggestions and technology-related inquiries.">
+
+<meta name="theme-color" content="#02040a">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root{
+    --bg:#02040a;
+    --panel:rgba(12,18,32,.72);
+    --text:#f5f7ff;
+    --muted:#8d98ad;
+    --cyan:#00e5ff;
+    --blue:#4da6ff;
+    --purple:#8b5cf6;
+    --line:rgba(255,255,255,.09);
 }
 
-body {
-    min-height: 100vh;
-    background: #03050b;
-    color: white;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-.background {
-    position: fixed;
-    inset: 0;
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    color:var(--text);
+    font-family:Inter,sans-serif;
+    overflow-x:hidden;
+
     background:
-        radial-gradient(circle at 20% 20%, rgba(0,150,255,.15), transparent 30%),
-        radial-gradient(circle at 80% 70%, rgba(100,50,255,.12), transparent 30%);
-    pointer-events: none;
+        radial-gradient(circle at 15% 10%,rgba(0,229,255,.12),transparent 30%),
+        radial-gradient(circle at 85% 30%,rgba(139,92,246,.13),transparent 30%),
+        #02040a;
 }
 
-nav {
-    width: 90%;
-    max-width: 1200px;
-    height: 70px;
-    margin: 20px auto;
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
 
-    padding: 0 25px;
+    background-size:70px 70px;
 
-    background: rgba(8,12,25,.75);
-    backdrop-filter: blur(20px);
-
-    border: 1px solid rgba(255,255,255,.1);
-    border-radius: 20px;
+    pointer-events:none;
+    z-index:-1;
 }
 
-.logo {
-    font-size: 23px;
-    font-weight: bold;
-    letter-spacing: 5px;
+/* =========================
+   NAVIGATION
+========================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    padding:18px 20px;
 }
 
-.logo span {
-    color: #00d9ff;
+nav{
+    max-width:1200px;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:14px 20px;
+
+    border:1px solid var(--line);
+    border-radius:18px;
+
+    background:rgba(3,5,11,.72);
+    backdrop-filter:blur(20px);
+
+    box-shadow:0 15px 50px rgba(0,0,0,.25);
 }
 
-nav a {
-    color: #9ba6b9;
-    text-decoration: none;
-    margin-left: 25px;
+.logo{
+    color:white;
+    text-decoration:none;
+
+    font-family:"Space Grotesk";
+    font-size:25px;
+    font-weight:800;
+
+    letter-spacing:4px;
 }
 
-nav a:hover {
-    color: #00d9ff;
+.logo span{
+    background:linear-gradient(
+        90deg,
+        var(--cyan),
+        var(--blue),
+        var(--purple)
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
 }
 
-.container {
-    width: min(1000px, 90%);
-    margin: 100px auto;
+.links{
+    display:flex;
+    gap:7px;
 }
 
-h1 {
-    font-size: clamp(50px, 8vw, 90px);
-    letter-spacing: 4px;
+.links a{
+    color:#aeb8ca;
+    text-decoration:none;
 
-    background: linear-gradient(120deg, white, #00d9ff, white);
-    background-size: 200%;
+    padding:9px 13px;
+    border-radius:9px;
 
--webkit-background-clip: text;
-background-clip: text;
-color: transparent;
-    
+    font-size:14px;
 
-    animation: shine 5s linear infinite;
+    transition:.3s;
 }
 
-@keyframes shine {
-    to {
-        background-position: 200%;
+.links a:hover,
+.links .active{
+    color:white;
+    background:rgba(255,255,255,.07);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main{
+    max-width:1100px;
+    margin:auto;
+
+    padding:90px 20px 120px;
+}
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.tag{
+    display:inline-block;
+
+    color:var(--cyan);
+
+    font-size:11px;
+    font-weight:800;
+
+    letter-spacing:3px;
+
+    margin-bottom:20px;
+}
+
+h1{
+    font-family:"Space Grotesk";
+
+    font-size:clamp(48px,8vw,90px);
+
+    line-height:.95;
+
+    letter-spacing:-4px;
+
+    margin-bottom:25px;
+}
+
+.gradient{
+    background:
+        linear-gradient(
+            90deg,
+            white,
+            #9befff,
+            var(--blue),
+            #a78bfa,
+            white
+        );
+
+    background-size:250% auto;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    animation:gradient 6s linear infinite;
+}
+
+@keyframes gradient{
+    to{
+        background-position:250% center;
     }
 }
 
-.subtitle {
-    color: #8994a8;
-    font-size: 18px;
-    line-height: 1.7;
-    max-width: 650px;
-    margin: 25px 0 50px;
+.hero p{
+    max-width:650px;
+
+    margin:auto;
+
+    color:var(--muted);
+
+    line-height:1.8;
+
+    font-size:17px;
 }
 
-.form {
-    max-width: 700px;
+/* =========================
+   CONTACT GRID
+========================= */
 
-    padding: 35px;
+.contact-box{
+    display:grid;
 
-    background: rgba(12,18,32,.75);
+    grid-template-columns:.85fr 1.15fr;
 
-    border: 1px solid rgba(255,255,255,.1);
-
-    border-radius: 25px;
-
-    backdrop-filter: blur(20px);
+    gap:20px;
 }
 
-label {
-    display: block;
-    color: #9ca7ba;
-    margin-bottom: 10px;
-    font-size: 14px;
+.info,
+.form-box{
+    padding:35px;
+
+    border:1px solid var(--line);
+
+    border-radius:25px;
+
+    background:var(--panel);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.25);
+
+    transition:.4s;
+}
+
+.info:hover,
+.form-box:hover{
+    border-color:rgba(0,229,255,.22);
+
+    transform:translateY(-4px);
+}
+
+.info h2,
+.form-box h2{
+    font-family:"Space Grotesk";
+
+    font-size:28px;
+
+    margin-bottom:15px;
+}
+
+.info>p{
+    color:var(--muted);
+
+    line-height:1.7;
+
+    margin-bottom:30px;
+}
+
+.info-item{
+    padding:20px 0;
+
+    border-top:1px solid var(--line);
+}
+
+.info-item strong{
+    display:block;
+
+    margin-bottom:7px;
+}
+
+.info-item span{
+    color:var(--muted);
+
+    font-size:14px;
+}
+
+/* =========================
+   PERSONAL PROFILE
+========================= */
+
+.profile{
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:30px;
+
+    padding:16px;
+
+    border:1px solid var(--line);
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.025);
+}
+
+.profile-icon{
+    width:48px;
+    height:48px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:14px;
+
+    font-weight:800;
+
+    color:#001018;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--cyan),
+            var(--blue)
+        );
+
+    box-shadow:
+        0 0 25px rgba(0,229,255,.15);
+}
+
+.profile strong{
+    display:block;
+
+    margin-bottom:4px;
+}
+
+.profile span{
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+/* =========================
+   FORM
+========================= */
+
+form{
+    display:grid;
+
+    gap:16px;
+}
+
+label{
+    color:#c5ccda;
+
+    font-size:13px;
+
+    margin-bottom:-8px;
 }
 
 input,
-textarea {
-    width: 100%;
+textarea{
+    width:100%;
 
-    padding: 16px;
+    padding:15px 16px;
 
-    margin-bottom: 25px;
+    border-radius:12px;
 
-    background: rgba(0,0,0,.3);
+    border:1px solid var(--line);
 
-    border: 1px solid rgba(255,255,255,.1);
+    outline:none;
 
-    border-radius: 12px;
+    background:rgba(255,255,255,.035);
 
-    color: white;
+    color:white;
 
-    font-size: 15px;
+    font:inherit;
 
-    outline: none;
+    transition:.3s;
+}
+
+input::placeholder,
+textarea::placeholder{
+    color:#667287;
 }
 
 input:focus,
-textarea:focus {
-    border-color: #00d9ff;
+textarea:focus{
+    border-color:rgba(0,229,255,.55);
 
     box-shadow:
-        0 0 25px rgba(0,217,255,.12);
+        0 0 25px rgba(0,229,255,.08);
 }
 
-textarea {
-    min-height: 160px;
-    resize: vertical;
+textarea{
+    min-height:160px;
+
+    resize:vertical;
 }
 
-button {
-    padding: 15px 30px;
+button{
+    border:0;
 
-    background: transparent;
+    padding:16px 22px;
 
-    color: white;
+    border-radius:12px;
 
-    border: 1px solid #00d9ff;
+    font-weight:800;
 
-    border-radius: 30px;
+    font-size:14px;
 
-    cursor: pointer;
+    cursor:pointer;
 
-    transition: .3s;
+    color:#001018;
+
+    background:
+        linear-gradient(
+            100deg,
+            var(--cyan),
+            var(--blue)
+        );
+
+    transition:.35s;
 }
 
-button:hover {
-    background: #00d9ff;
-    color: #03050b;
+button:hover{
+    transform:translateY(-3px);
 
-    box-shadow: 0 0 35px rgba(0,217,255,.4);
+    box-shadow:
+        0 15px 40px rgba(0,229,255,.2);
 }
 
-footer {
-    margin-top: 100px;
+.note{
+    color:#69758b;
 
-    padding: 60px 20px;
+    font-size:12px;
 
-    text-align: center;
-
-    border-top: 1px solid rgba(255,255,255,.08);
-
-    color: #69758a;
+    line-height:1.6;
 }
 
-footer strong {
-    color: white;
-    letter-spacing: 5px;
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    border-top:1px solid var(--line);
+
+    padding:35px 20px;
+
+    text-align:center;
+
+    color:#657086;
+
+    font-size:13px;
 }
 
-@media(max-width:700px) {
+footer a{
+    color:var(--muted);
 
-    nav .links {
-        display: none;
+    text-decoration:none;
+
+    transition:.25s;
+}
+
+footer a:hover{
+    color:var(--cyan);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px){
+
+    .links{
+        display:none;
     }
 
-    .container {
-        margin-top: 70px;
+    main{
+        padding-top:60px;
+    }
+
+    .contact-box{
+        grid-template-columns:1fr;
+    }
+
+    h1{
+        letter-spacing:-2px;
+    }
+
+    .info,
+    .form-box{
+        padding:25px;
     }
 }
+
+@media(max-width:480px){
+
+    header{
+        padding:10px;
+    }
+
+    .hero{
+        margin-bottom:40px;
+    }
+
+    h1{
+        font-size:52px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="background"></div>
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<header>
 
 <nav>
 
-    <div class="logo">
+    <a href="index.html" class="logo">
         VEL<span>TRIX</span>
-    </div>
+    </a>
 
     <div class="links">
-        <a href="home.html">Home</a>
-        <a href="articles.html">Articles</a>
-        <a href="index.html">Featured</a>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="articles.html">
+            Articles
+        </a>
+
+        <a href="ai-future.html">
+            AI
+        </a>
+
+        <a href="robotics.html">
+            Robotics
+        </a>
+
+        <a href="computing.html">
+            Computing
+        </a>
+
+        <a href="science.html">
+            Science
+        </a>
+
+        <a href="contact.html" class="active">
+            Contact
+        </a>
+
     </div>
 
 </nav>
 
-<div class="container">
+</header>
 
-    <h1>CONTACT</h1>
 
-    <p class="subtitle">
-        Have an idea, question or opportunity?
-        Send a message to the VELTRIX team.
+<!-- =========================
+     MAIN
+========================= -->
+
+<main>
+
+<section class="hero">
+
+    <div class="tag">
+        GET IN TOUCH
+    </div>
+
+    <h1>
+        CONTACT<br>
+        <span class="gradient">
+            VELTRIX
+        </span>
+    </h1>
+
+    <p>
+        Have a question, suggestion, correction or technology
+        idea you'd like to share? Connect with VELTRIX.
     </p>
 
-    <form class="form" onsubmit="sendMessage(event)">
+</section>
 
-        <label>Your Name</label>
+
+<section class="contact-box">
+
+
+<!-- =========================
+     INFORMATION
+========================= -->
+
+<div class="info">
+
+    <h2>
+        Let's connect.
+    </h2>
+
+    <p>
+        VELTRIX explores artificial intelligence, robotics,
+        computing, science and emerging technology.
+        Your feedback and ideas are always welcome.
+    </p>
+
+
+    <div class="profile">
+
+        <div class="profile-icon">
+            MH
+        </div>
+
+        <div>
+
+            <strong>
+                Mayukh Hati
+            </strong>
+
+            <span>
+                Creator of VELTRIX
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="info-item">
+
+        <strong>
+            General Inquiries
+        </strong>
+
+        <span>
+            Questions about VELTRIX and its content.
+        </span>
+
+    </div>
+
+
+    <div class="info-item">
+
+        <strong>
+            Feedback
+        </strong>
+
+        <span>
+            Suggestions, corrections and ideas.
+        </span>
+
+    </div>
+
+
+    <div class="info-item">
+
+        <strong>
+            Email
+        </strong>
+
+        <span>
+            manheat87@gmail.com
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     CONTACT FORM
+========================= -->
+
+<div class="form-box">
+
+    <h2>
+        Send a message
+    </h2>
+
+
+    <!-- Netlify Form -->
+
+    <form
+        name="veltrix-contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+    >
 
         <input
+            type="hidden"
+            name="form-name"
+            value="veltrix-contact"
+        >
+
+
+        <p hidden>
+
+            <label>
+                Don't fill this out:
+                <input name="bot-field">
+            </label>
+
+        </p>
+
+
+        <label for="name">
+            Name
+        </label>
+
+        <input
+            id="name"
+            name="name"
             type="text"
-            placeholder="Enter your name"
+            placeholder="Your name"
             required
         >
 
-        <label>Email</label>
+
+        <label for="email">
+            Email
+        </label>
 
         <input
+            id="email"
+            name="email"
             type="email"
-            placeholder="you@example.com"
+            placeholder="your@email.com"
             required
         >
 
-        <label>Message</label>
+
+        <label for="subject">
+            Subject
+        </label>
+
+        <input
+            id="subject"
+            name="subject"
+            type="text"
+            placeholder="What is your message about?"
+            required
+        >
+
+
+        <label for="message">
+            Message
+        </label>
 
         <textarea
+            id="message"
+            name="message"
             placeholder="Write your message..."
             required
         ></textarea>
 
+
         <button type="submit">
-            SEND MESSAGE →
+            Send Message →
         </button>
+
+
+        <p class="note">
+            Your message will be submitted securely through
+            the VELTRIX website.
+        </p>
 
     </form>
 
 </div>
 
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
-    <strong>VELTRIX</strong>
+    © 2026 VELTRIX · Created by Mayukh Hati
 
-    <p style="margin-top:15px;">
-        Innovate. Transform. Elevate.
-    </p>
+    <br><br>
+
+    <a href="index.html">
+        Home
+    </a>
+
+    ·
+
+    <a href="privacy.html">
+        Privacy Policy
+    </a>
 
 </footer>
 
-<script>
-
-function sendMessage(event) {
-
-    event.preventDefault();
-
-    alert("Message interface is working! Next we can connect it to a real email system.");
-
-}
-
-</script>
 
 </body>
 </html>
+```

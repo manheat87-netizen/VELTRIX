@@ -1,0 +1,616 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Disclaimer — VELTRIX</title>
+
+<meta name="description"
+content="Disclaimer for VELTRIX technology articles, information, opinions, advertising and external links.">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root{
+    --bg:#02040a;
+    --panel:rgba(12,18,32,.72);
+    --text:#f5f7ff;
+    --muted:#8d98ad;
+    --cyan:#00e5ff;
+    --blue:#4da6ff;
+    --purple:#8b5cf6;
+    --line:rgba(255,255,255,.09);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+
+    background:
+        radial-gradient(circle at 15% 10%,rgba(0,229,255,.10),transparent 30%),
+        radial-gradient(circle at 85% 25%,rgba(139,92,246,.12),transparent 30%),
+        #02040a;
+
+    color:var(--text);
+    font-family:Inter,sans-serif;
+    line-height:1.8;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+
+    background-size:70px 70px;
+
+    pointer-events:none;
+    z-index:-1;
+}
+
+/* NAVIGATION */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    padding:18px 20px;
+}
+
+nav{
+    max-width:1200px;
+    margin:auto;
+    padding:14px 20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    border:1px solid var(--line);
+    border-radius:18px;
+
+    background:rgba(3,5,11,.72);
+    backdrop-filter:blur(20px);
+}
+
+.logo{
+    color:white;
+    text-decoration:none;
+
+    font-family:"Space Grotesk";
+    font-size:25px;
+    font-weight:800;
+
+    letter-spacing:4px;
+}
+
+.logo span{
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            var(--blue),
+            var(--purple)
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+.links{
+    display:flex;
+    gap:7px;
+}
+
+.links a{
+    color:#aeb8ca;
+    text-decoration:none;
+
+    padding:9px 13px;
+    border-radius:9px;
+
+    font-size:14px;
+
+    transition:.3s;
+}
+
+.links a:hover,
+.links .active{
+    color:white;
+    background:rgba(255,255,255,.07);
+}
+
+/* MAIN */
+
+main{
+    max-width:900px;
+    margin:auto;
+
+    padding:90px 20px 120px;
+}
+
+.hero{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.tag{
+    display:inline-block;
+
+    color:var(--cyan);
+
+    font-size:11px;
+    font-weight:800;
+
+    letter-spacing:3px;
+
+    margin-bottom:20px;
+}
+
+h1{
+    font-family:"Space Grotesk";
+
+    font-size:clamp(45px,7vw,75px);
+
+    line-height:1;
+
+    letter-spacing:-3px;
+
+    margin-bottom:20px;
+}
+
+.gradient{
+    background:
+        linear-gradient(
+            90deg,
+            white,
+            #9befff,
+            var(--blue),
+            #a78bfa
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+.updated{
+    color:#69758b;
+    font-size:13px;
+}
+
+/* DISCLAIMER */
+
+.disclaimer{
+    padding:40px;
+
+    border:1px solid var(--line);
+
+    border-radius:25px;
+
+    background:var(--panel);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.25);
+}
+
+.disclaimer section{
+    margin-bottom:40px;
+}
+
+.disclaimer section:last-child{
+    margin-bottom:0;
+}
+
+.disclaimer h2{
+    font-family:"Space Grotesk";
+
+    font-size:26px;
+
+    margin-bottom:12px;
+}
+
+.disclaimer p{
+    color:var(--muted);
+
+    margin-bottom:15px;
+}
+
+.disclaimer ul{
+    color:var(--muted);
+
+    padding-left:25px;
+}
+
+.disclaimer li{
+    margin-bottom:8px;
+}
+
+.disclaimer a{
+    color:var(--cyan);
+    text-decoration:none;
+}
+
+.disclaimer a:hover{
+    text-decoration:underline;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid var(--line);
+
+    padding:35px 20px;
+
+    text-align:center;
+
+    color:#657086;
+
+    font-size:13px;
+}
+
+footer a{
+    color:var(--muted);
+    text-decoration:none;
+}
+
+footer a:hover{
+    color:var(--cyan);
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .links{
+        display:none;
+    }
+
+    main{
+        padding-top:60px;
+    }
+
+    .disclaimer{
+        padding:25px;
+    }
+
+    h1{
+        letter-spacing:-2px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<nav>
+
+    <a href="index.html" class="logo">
+        VEL<span>TRIX</span>
+    </a>
+
+    <div class="links">
+
+        <a href="index.html">Home</a>
+
+        <a href="articles.html">Articles</a>
+
+        <a href="ai-future.html">AI</a>
+
+        <a href="robotics.html">Robotics</a>
+
+        <a href="computing.html">Computing</a>
+
+        <a href="science.html">Science</a>
+
+        <a href="about.html">About</a>
+
+        <a href="contact.html">Contact</a>
+
+    </div>
+
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="hero">
+
+    <div class="tag">
+        VELTRIX INFORMATION
+    </div>
+
+    <h1>
+        IMPORTANT<br>
+        <span class="gradient">
+            DISCLAIMER
+        </span>
+    </h1>
+
+    <div class="updated">
+        Last updated: August 9, 2026
+    </div>
+
+</section>
+
+
+<article class="disclaimer">
+
+
+<section>
+
+<h2>
+1. General Information
+</h2>
+
+<p>
+The information published on VELTRIX is provided for
+general informational and educational purposes.
+</p>
+
+<p>
+VELTRIX is created and managed by Mayukh Hati.
+Although reasonable efforts may be made to provide useful
+and accurate information, no guarantee is made that every
+piece of information will always be complete, accurate,
+current or error-free.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+2. Technology Information
+</h2>
+
+<p>
+Technology develops rapidly. Specifications, prices,
+features, software capabilities and other technical
+information may change after an article is published.
+</p>
+
+<p>
+Readers should verify important technical information with
+official manufacturers, developers or other authoritative
+sources before making decisions.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+3. Artificial Intelligence
+</h2>
+
+<p>
+Articles discussing artificial intelligence may describe
+emerging technologies, research, predictions or possible
+future developments.
+</p>
+
+<p>
+Future-oriented statements are not guarantees of what will
+actually happen.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+4. Product and Service Information
+</h2>
+
+<p>
+VELTRIX may discuss technology products, hardware, software,
+services or companies.
+</p>
+
+<p>
+Mentioning a product or company does not necessarily mean
+that VELTRIX endorses or guarantees that product or service.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+5. Prices and Availability
+</h2>
+
+<p>
+Prices, specifications, availability and offers may change
+without notice.
+</p>
+
+<p>
+Always check the official seller, manufacturer or service
+provider before purchasing a product or service.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6. External Links
+</h2>
+
+<p>
+VELTRIX may link to external websites for additional
+information or reference.
+</p>
+
+<p>
+VELTRIX does not control third-party websites and is not
+responsible for their content, availability, security or
+privacy practices.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7. Advertising
+</h2>
+
+<p>
+VELTRIX may display advertisements from third-party
+advertising providers, including Google AdSense.
+</p>
+
+<p>
+Advertisements are generally provided by advertising systems
+and may be selected according to their own technologies,
+policies and signals.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8. Opinions and Editorial Content
+</h2>
+
+<p>
+Some articles may contain analysis, commentary or opinions.
+Such material represents the author's perspective and should
+not necessarily be considered professional advice.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9. No Professional Advice
+</h2>
+
+<p>
+VELTRIX content should not be considered professional
+financial, legal, medical, engineering or other specialized
+professional advice.
+</p>
+
+<p>
+For important decisions, consult an appropriately qualified
+professional.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10. Limitation of Responsibility
+</h2>
+
+<p>
+To the extent permitted by applicable law, VELTRIX and its
+creator are not responsible for losses or damages resulting
+from reliance on information published on the website.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+11. Changes to This Disclaimer
+</h2>
+
+<p>
+This disclaimer may be updated when the website, content or
+applicable requirements change.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+12. Contact
+</h2>
+
+<p>
+For questions about this disclaimer, contact:
+</p>
+
+<p>
+<strong>Mayukh Hati</strong><br>
+
+<a href="mailto:manheat87@gmail.com">
+manheat87@gmail.com
+</a>
+</p>
+
+</section>
+
+
+</article>
+
+</main>
+
+
+<footer>
+
+    © 2026 VELTRIX · Created by Mayukh Hati
+
+    <br><br>
+
+    <a href="index.html">Home</a>
+    ·
+    <a href="about.html">About</a>
+    ·
+    <a href="contact.html">Contact</a>
+    ·
+    <a href="privacy.html">Privacy Policy</a>
+    ·
+    <a href="terms.html">Terms</a>
+
+</footer>
+
+</body>
+</html>
+```
