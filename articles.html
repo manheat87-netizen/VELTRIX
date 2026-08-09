@@ -343,7 +343,6 @@ footer strong {
 
 <div class="grid" id="articles">
 
-
     <div class="card" data-category="ai">
 
         <div class="tag">AI</div>
@@ -357,8 +356,28 @@ footer strong {
             transform software, research and everyday life.
         </p>
 
-       <a href="ai-future.html" class="read"></a>
-       
+        <a href="ai-future.html" class="read">
+            Read Article →
+        </a>
+
+    </div>
+
+
+    <div class="card" data-category="robotics">
+
+        <div class="tag">ROBOTICS</div>
+
+        <h2>
+            The Future of Robotics
+        </h2>
+
+        <p>
+            Explore humanoid robots, autonomous machines,
+            medical robotics, space exploration and the
+            future of intelligent machines.
+        </p>
+
+        <a href="robotics.html" class="read">
             Read Article →
         </a>
 
@@ -378,7 +397,7 @@ footer strong {
             allowing machines to understand their environment.
         </p>
 
-        <a href="index.html" class="read">
+        <a href="robotics.html" class="read">
             Read Article →
         </a>
 
@@ -398,7 +417,7 @@ footer strong {
             computing architectures.
         </p>
 
-        <a href="index.html" class="read">
+        <a href="computing.html" class="read">
             Read Article →
         </a>
 
@@ -418,7 +437,7 @@ footer strong {
             possibilities they could unlock.
         </p>
 
-        <a href="index.html" class="read">
+        <a href="science.html" class="read">
             Read Article →
         </a>
 
@@ -438,7 +457,7 @@ footer strong {
             planning, reasoning and completing tasks.
         </p>
 
-        <a href="index.html" class="read">
+        <a href="ai-agents.html" class="read">
             Read Article →
         </a>
 
@@ -458,7 +477,7 @@ footer strong {
             could mean for future robotics.
         </p>
 
-        <a href="index.html" class="read">
+        <a href="robotics.html" class="read">
             Read Article →
         </a>
 
@@ -468,6 +487,8 @@ footer strong {
 
 
 <footer>
+
+   <footer>
 
     <strong>VELTRIX</strong>
 
@@ -480,63 +501,53 @@ footer strong {
 
 <script>
 
-/* SEARCH */
-
 const search = document.getElementById("search");
 const cards = document.querySelectorAll(".card");
+const categories = document.querySelectorAll(".category");
 
-search.addEventListener("input", function() {
+let selectedCategory = "all";
 
-    const value = this.value.toLowerCase();
+function filterCards() {
+
+    const searchText = search.value.toLowerCase();
 
     cards.forEach(card => {
 
+        const category = card.dataset.category;
         const text = card.innerText.toLowerCase();
 
+        const categoryMatch =
+            selectedCategory === "all" ||
+            category === selectedCategory;
+
+        const searchMatch =
+            text.includes(searchText);
+
         card.style.display =
-            text.includes(value) ? "block" : "none";
-
+            categoryMatch && searchMatch ? "" : "none";
     });
-
-});
-
-
-/* CATEGORIES */
-
-const categories =
-    document.querySelectorAll(".category");
+}
 
 categories.forEach(category => {
 
-    category.addEventListener("click", () => {
+    category.addEventListener("click", function () {
 
-        categories.forEach(c =>
-            c.classList.remove("active")
-        );
-
-        category.classList.add("active");
-
-        const selected =
-            category.dataset.category;
-
-        cards.forEach(card => {
-
-            if (
-                selected === "all" ||
-                card.dataset.category === selected
-            ) {
-                card.style.display = "block";
-            } else {
-                card.style.display = "none";
-            }
-
+        categories.forEach(c => {
+            c.classList.remove("active");
         });
 
-    });
+        this.classList.add("active");
 
+        selectedCategory = this.dataset.category;
+
+        filterCards();
+    });
 });
 
+search.addEventListener("input", filterCards);
+
 </script>
+
 
 </body>
 </html>
